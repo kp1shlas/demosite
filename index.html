@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Деньги под контролем — Найдите, куда уходят деньги, за один вечер</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Редкая возможность за один вечер найти куда уходят твои деньги">
+</head>
+<body>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="badge">« Деньги под контролем »</div>
+            <h1>Редкая возможность за один вечер найти куда уходят твои деньги — и получить конкретный план что с этим делать</h1>
+            <p class="hero-subtitle">Большинство предпринимателей работают вслепую: выручка есть, а что происходит с деньгами — непонятно. Работают больше, зарабатывают меньше — и не знают почему.</p>
+            
+            <div class="hero-questions">
+                <div class="question-item">— Где конкретно оседают деньги прямо сейчас — и сколько это стоит в год?</div>
+                <div class="question-item">— Нормально ли у тебя всё — или уже давно горит красный?</div>
+                <div class="question-item">— Что делать первым чтобы прибыль начала расти?</div>
+            </div>
+            
+            <button class="btn-primary" onclick="scrollToTariffs()">Выбрать тариф</button>
+        </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section class="products">
+        <div class="container">
+            <h2 class="section-title">А также внутри продукта:</h2>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <h3>Маршрутная карта — с чего начать и что делать первые 30 дней</h3>
+                    <p>Это первое что открываешь после покупки. Одна страница которая говорит что делать сегодня, на этой неделе и к концу месяца.</p>
+                </div>
+
+                <div class="product-card with-icon">
+                    <div class="icon">📊</div>
+                    <div class="content">
+                        <h3>Таблица норм — проверь свои цифры за 2 минуты</h3>
+                        <p>Нормы маржи, ФОТ, прибыли и запаса прочности для услуг, торговли, производства, онлайна и общепита.</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <h3>Практикум — найди дыру в бизнесе за один вечер</h3>
+                    <p>5 шагов прямо на твоих цифрах: чистая прибыль, маржа, ФОТ, стоимость клиента, запас прочности.</p>
+                </div>
+
+                <div class="product-card">
+                    <h3>Чек-лист — 10 мест где прямо сейчас утекают деньги</h3>
+                    <p>Одна страница. Десять пунктов. Пять минут. Ставишь галочки там где узнал себя.</p>
+                </div>
+
+                <div class="product-card">
+                    <h3>Рабочая тетрадь — 12 решений когда нашёл проблему</h3>
+                    <p>12 инструментов под 12 самых частых финансовых проблем малого бизнеса.</p>
+                </div>
+
+                <div class="product-card">
+                    <h3>Гайд — как поднять цену и не потерять клиентов</h3>
+                    <p>4 стратегии повышения, психология цены и готовые фразы для разговора с клиентом.</p>
+                </div>
+
+                <div class="product-card with-icon">
+                    <div class="icon">💰</div>
+                    <div class="content">
+                        <h3>Таблица — считает твои деньги сама</h3>
+                        <p>Вводишь цифры в жёлтые ячейки — она сама считает все 7 показателей.</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <h3>План — что делать первые 30 дней по шагам</h3>
+                    <p>Четыре недели. Конкретные задачи в нужном порядке. С чекбоксами.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SYSTEM TARIFF SECTION -->
+    <section class="system-tariff">
+        <div class="container">
+            <h2 class="section-title">На тарифе «СИСТЕМА»:</h2>
+            
+            <div class="system-grid">
+                <div class="system-card">
+                    <h3>👁️ Взгляд эксперта на твой бизнес</h3>
+                    <p>Я лично провожу разборы. Заполняешь 12 вопросов о своём бизнесе — и присылаешь мне.</p>
+                </div>
+
+                <div class="system-card">
+                    <h3>🎯 Приоритеты именно для тебя</h3>
+                    <p>Инструменты покажут где проблемы. Я скажу с какой начать первой.</p>
+                </div>
+
+                <div class="system-card">
+                    <h3>📄 Письменное резюме после разбора</h3>
+                    <p>После голосового разбора получаешь одностраничный документ с главными выводами.</p>
+                </div>
+
+                <div class="system-card">
+                    <h3> Один вопрос после разбора</h3>
+                    <p>Что-то осталось непонятным — напиши. Отвечу текстом.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section class="pricing" id="tariffs">
+        <div class="container">
+            <h2 class="section-title">ТАРИФЫ:</h2>
+            
+            <div class="pricing-grid">
+                <!-- Tariff Diagnosis -->
+                <div class="pricing-card">
+                    <h3>Диагноз</h3>
+                    <div class="price">3 900 ₽</div>
+                    <div class="price-note">Разовая покупка · доступ навсегда</div>
+                    <p class="tariff-desc">Все 8 инструментов. Разбираешься сам.</p>
+                    
+                    <ul class="tariff-features">
+                        <li>✓ Маршрутная карта</li>
+                        <li>✓ Таблица норм</li>
+                        <li>✓ Практикум</li>
+                        <li>✓ Чек-лист</li>
+                        <li>✓ Рабочая тетрадь</li>
+                        <li>✓ Гайд — как поднять цену</li>
+                        <li>✓ Таблица — считает сама</li>
+                        <li>✓ План первых 30 дней</li>
+                    </ul>
+                    
+                    <button class="btn-primary" onclick="openModal('diagnosis')">Купить за 3 900 ₽</button>
+                </div>
+
+                <!-- Tariff System -->
+                <div class="pricing-card featured">
+                    <div class="featured-badge">РЕКОМЕНДУЕМ</div>
+                    <h3>Система</h3>
+                    <div class="price">7 900 ₽</div>
+                    <div class="price-note">Разовая покупка · не более 15 мест в месяц</div>
+                    <p class="tariff-desc">Все 8 инструментов плюс я лично тебя разберу.</p>
+                    
+                    <ul class="tariff-features">
+                        <li>✓ Всё из тарифа «Диагноз»</li>
+                        <li>✓ Взгляд эксперта на твой бизнес</li>
+                        <li>✓ Приоритеты именно для тебя</li>
+                        <li>✓ Персональный разбор</li>
+                        <li>✓ Письменное резюме</li>
+                    </ul>
+                    
+                    <div class="how-it-works">
+                        <strong>Как это работает:</strong>
+                        <ol>
+                            <li>Покупаешь — получаешь все материалы</li>
+                            <li>Проходишь практикум</li>
+                            <li>Присылаешь мне</li>
+                            <li>В течение 3 дней — разбор</li>
+                        </ol>
+                    </div>
+                    
+                    <button class="btn-primary" onclick="openModal('system')">Купить за 7 900 ₽</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TARGET AUDIENCE -->
+    <section class="audience">
+        <div class="container">
+            <h2 class="section-title">Кому подойдёт этот продукт</h2>
+            
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <h3>👔 Собственники малого бизнеса</h3>
+                    <p>Если устали от того что деньги есть в обороте но нет в кармане.</p>
+                </div>
+                
+                <div class="audience-card">
+                    <h3>💻 Самозанятые и фрилансеры</h3>
+                    <p>Если доход нестабильный и непонятно как планировать.</p>
+                </div>
+                
+                <div class="audience-card">
+                    <h3>🚀 Предприниматели на старте</h3>
+                    <p>Если только начинаете или планируете.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">ОТВЕТЫ НА ВОПРОСЫ:</h2>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3>Подойдёт ли мне если я новичок?</h3>
+                    <p>Материал написан для людей которые уже ведут бизнес или работают на себя.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>У меня маленький бизнес — мне это нужно?</h3>
+                    <p>Чем меньше бизнес — тем острее каждая финансовая ошибка.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Чем это отличается от бесплатной таблицы?</h3>
+                    <p>Таблица считает цифры. Этот продукт объясняет что они значат.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Когда получу материалы?</h3>
+                    <p>После оплаты на email придёт письмо с доступами.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Могу ли я повысить тариф?</h3>
+                    <p>Да, но повышение происходит по полной цене тарифа.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>А если не найду ни одной проблемы?</h3>
+                    <p>Напиши мне — лично посмотрю. Если всё идеально — верну деньги.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Начни сегодня</h2>
+            <p>Через неделю ты либо найдёшь деньги которые уже есть в бизнесе — либо убедишься что всё хорошо.</p>
+            <button class="btn-primary btn-large" onclick="scrollToTariffs()">Выбрать тариф →</button>
+            <div class="guarantees">
+                <span>🛡️ Гарантия возврата</span>
+                <span>♾️ Доступ навсегда</span>
+                <span>🚫 Без подписки</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ORDER MODAL -->
+    <div id="orderModal" class="modal">
+        <div class="modal-overlay" onclick="closeModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            
+            <h2 class="modal-title">Оформление заказа</h2>
+            <div id="modalTariffInfo" class="modal-tariff-info"></div>
+            
+            <form id="orderForm" class="order-form">
+                <input type="hidden" name="tariff" id="tariffInput">
+                <input type="hidden" name="price" id="priceInput">
+                
+                <div class="form-group">
+                    <label for="name">Ваше имя *</label>
+                    <input type="text" id="name" name="name" required placeholder="Иван Иванов">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required placeholder="example@mail.ru">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Телефон</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+7 (999) 999-99-99">
+                </div>
+                
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="offer" required>
+                        <span>Нажимая на кнопку "Оплатить", я соглашаюсь с условиями <a href="offer.html" target="_blank">оферты</a> *</span>
+                    </label>
+                </div>
+                
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="privacy" required>
+                        <span>Даю согласие на обработку персональных данных в соответствии с <a href="privacy.html" target="_blank">политикой конфиденциальности</a> *</span>
+                    </label>
+                </div>
+                
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="marketing">
+                        <span>Даю согласие на получение информационных и маркетинговых рассылок</span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn-primary btn-full btn-submit">
+                    Перейти к оплате
+                </button>
+                
+                <p class="form-note">Если возникли проблемы с оплатой, напишите в поддержку: @your_support</p>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Деньги под контролем. Все права защищены.</p>
+            <p>
+                <a href="privacy.html">Политика конфиденциальности</a> | 
+                <a href="offer.html">Оферта</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
