@@ -8,15 +8,15 @@
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     color: #111;
-    background-color: #FAFAFA; /* Слегка сероватый фон для контраста с белыми карточками */
+    background-color: #FAFAFA;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
 }
 
 .container {
-    max-width: 1160px;
+    max-width: 1320px; /* Увеличен отступ от краев */
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 40px; /* Увеличены боковые отступы */
 }
 
 a { color: #111; text-decoration: underline; text-decoration-thickness: 1px; }
@@ -34,26 +34,33 @@ h1 {
     margin-bottom: 32px;
 }
 
-h2 {
+/* Заголовок секции с кривым мазком маркера */
+.section-title {
     font-size: 40px;
     margin-bottom: 60px;
     position: relative;
     display: inline-block;
-    z-index: 1;
+    z-index: 2;
 }
 
-/* Кривая линия "маркер" под заголовками */
-h2::after {
+/* Кривой мазок маркера под заголовком (НЕ перекрывает текст) */
+.section-title::after {
     content: '';
     position: absolute;
-    bottom: 8px;
-    left: -8px;
-    width: 105%;
-    height: 14px;
-    background-color: rgba(255, 230, 0, 0.5); /* Полупрозрачный желтый */
-    border-radius: 12px;
+    bottom: 4px;
+    left: -10px;
+    right: -10px;
+    height: 24px;
+    background: rgba(255, 230, 0, 0.55);
+    /* Неровные края как у настоящего мазка маркера */
+    clip-path: polygon(
+        0% 50%, 2% 35%, 5% 45%, 10% 28%, 16% 38%, 23% 22%, 31% 32%, 
+        40% 18%, 50% 28%, 60% 12%, 70% 22%, 80% 8%, 90% 18%, 96% 12%, 100% 22%,
+        100% 78%, 96% 88%, 90% 82%, 80% 92%, 70% 78%, 60% 88%, 50% 72%, 
+        40% 82%, 31% 68%, 23% 78%, 16% 62%, 10% 72%, 5% 55%, 2% 65%, 0% 50%
+    );
     z-index: -1;
-    transform: rotate(-1.5deg); /* Легкий наклон для органичности */
+    pointer-events: none;
 }
 
 h3 {
@@ -76,7 +83,7 @@ h3 {
     transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     display: inline-block;
     letter-spacing: 0.05em;
-    box-shadow: 0 4px 0 #E6CF00; /* Эффект 3D кнопки как в референсе */
+    box-shadow: 0 4px 0 #E6CF00;
 }
 
 .btn-primary:hover {
@@ -142,7 +149,7 @@ h3 {
 /* Секции */
 section { padding: 100px 0; }
 
-/* Карточки продуктов */
+/* Карточки продуктов — КЛИКАБЕЛЬНЫЕ */
 .products-grid, .system-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -155,27 +162,36 @@ section { padding: 100px 0; }
     padding: 40px;
     border-radius: 32px;
     display: flex;
-    align-items: flex-start;
-    gap: 24px;
+    flex-direction: column;
+    gap: 20px;
     border: 1px solid #EEEEEE;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
 }
 
 .product-card:hover, .system-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
     border-color: #FFE600;
 }
 
-/* Стилизация эмодзи как дизайнерских иконок */
+.card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
 .card-icon {
-    font-size: 40px;
-    width: 72px;
-    height: 72px;
+    font-size: 36px;
+    width: 68px;
+    height: 68px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #FFF9D6; /* Светло-желтый фон */
+    background: #FFF9D6;
     border-radius: 20px;
     flex-shrink: 0;
     box-shadow: 0 8px 16px rgba(255, 230, 0, 0.15);
@@ -186,7 +202,37 @@ section { padding: 100px 0; }
 .card-content p { font-size: 16px; color: #555; margin-bottom: 12px; line-height: 1.6; }
 .card-content p:last-child { margin-bottom: 0; }
 
-/* ТЕМНЫЕ КАРТОЧКИ (Как в референсе) */
+/* Надпись "К оформлению" вместо кнопки */
+.card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #111;
+    text-decoration: none;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #F0F0F0;
+    transition: all 0.2s;
+}
+
+.card-cta::after {
+    content: '→';
+    transition: transform 0.2s;
+}
+
+.product-card:hover .card-cta,
+.system-card:hover .card-cta {
+    color: #000;
+}
+
+.product-card:hover .card-cta::after,
+.system-card:hover .card-cta::after {
+    transform: translateX(4px);
+}
+
+/* ТЕМНЫЕ КАРТОЧКИ */
 .card-dark {
     background-color: #111111;
     color: #FFFFFF;
@@ -198,6 +244,13 @@ section { padding: 100px 0; }
 .card-dark .card-icon {
     background: rgba(255, 230, 0, 0.15);
     box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+.card-dark .card-cta {
+    color: #FFE600;
+    border-top-color: #333;
+}
+.card-dark .card-cta::after {
+    color: #FFE600;
 }
 
 /* Тарифы */
@@ -218,7 +271,7 @@ section { padding: 100px 0; }
 }
 
 .pricing-card.featured {
-    background: #111111; /* Темный фон для премиум тарифа */
+    background: #111111;
     border-color: #111111;
     color: #FFFFFF;
     box-shadow: 0 24px 48px rgba(0,0,0,0.15);
@@ -367,7 +420,7 @@ section { padding: 100px 0; }
 }
 
 .final-cta h2::after {
-    background-color: rgba(255, 230, 0, 0.3);
+    background-color: rgba(255, 230, 0, 0.4);
 }
 
 .final-cta p {
@@ -531,23 +584,27 @@ footer {
 footer p { margin-bottom: 8px; }
 
 /* Адаптив */
+@media (max-width: 1024px) {
+    .container { padding: 0 32px; }
+}
+
 @media (max-width: 968px) {
     h1 { font-size: 40px; }
-    h2 { font-size: 32px; }
+    h2, .section-title { font-size: 32px; }
     .products-grid, .system-grid, .pricing-grid, .audience-grid {
         grid-template-columns: 1fr;
     }
-    .product-card, .system-card { flex-direction: column; }
-    .card-icon { margin-bottom: 16px; }
     .pricing-card.featured { transform: scale(1); }
     .modal-content { padding: 32px 24px; }
 }
 
 @media (max-width: 640px) {
+    .container { padding: 0 20px; }
     h1 { font-size: 32px; }
     .hero { padding: 80px 0 60px; }
     section { padding: 60px 0; }
     .btn-primary { padding: 20px 32px; font-size: 15px; width: 100%; }
     .price { font-size: 48px; }
     .guarantees { flex-direction: column; gap: 16px; }
+    .product-card, .system-card { padding: 28px; }
 }
